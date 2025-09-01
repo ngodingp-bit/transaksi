@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transaksi Selesai</title>
+  <style>
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #eef2f5;
+    }
+
+    .card {
+      background: #fff;
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 25px;
+      font-size: 24px;
+    }
+
+    .checkmark {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #4CAF50;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .checkmark::after {
+      content: "✓";
+      color: white;
+      font-size: 70px;
+      font-weight: bold;
+    }
+
+    .datetime {
+      font-size: 18px;
+      color: #555;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Transaksi selesai</h1>
+    <div class="checkmark"></div>
+    <div class="datetime" id="datetime"></div>
+  </div>
+
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      const options = {
+        day: '2-digit',
+        month: 'long',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+      };
+      document.getElementById("datetime").textContent =
+        now.toLocaleDateString("id-ID", options);
+    }
+    updateDateTime();
+  </script>
+</body>
+</html>
